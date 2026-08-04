@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | AR Advocacia Criminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">AR</span>
+                <span class="logo-text">Admin<br>Painel</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Voltar ao Site</a>
+                <a href="https://wa.me/5546999193713" target="_blank" rel="noopener" class="btn btn-gold btn-sm">WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <div class="container">
+            <header class="admin-header">
+                <h1>Painel Administrativo</h1>
+                <p>Gerencie serviços e visualize agendamentos. Dados salvos localmente (localStorage).</p>
+            </header>
+
+            <!-- TABS -->
+            <div class="tabs">
+                <button class="tab active" data-tab="servicos">Serviços</button>
+                <button class="tab" data-tab="agendamentos">Agendamentos</button>
+                <button class="tab" data-tab="processos">Processos (Consulta)</button>
+            </div>
+
+            <!-- TAB SERVIÇOS -->
+            <section id="tab-servicos" class="tab-content active">
+                <div class="admin-card">
+                    <h2>Criar / Editar Serviço</h2>
+                    <form id="form-servico">
+                        <input type="hidden" id="servico-id">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="servico-titulo">Título do serviço</label>
+                                <input type="text" id="servico-titulo" required placeholder="Ex: Consulta Inicial">
+                            </div>
+                            <div class="form-group">
+                                <label for="servico-preco">Valor (opcional)</label>
+                                <input type="text" id="servico-preco" placeholder="Ex: Sob consulta">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="servico-descricao">Descrição</label>
+                            <textarea id="servico-descricao" rows="3" required placeholder="Descrição breve do serviço"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-gold" id="btn-salvar-servico">Salvar Serviço</button>
+                            <button type="button" class="btn btn-outline" id="btn-cancelar-servico" style="display:none;">Cancelar edição</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h2>Serviços cadastrados</h2>
+                    <div id="lista-servicos-admin" class="table-wrap">
+                        <!-- preenchido via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB AGENDAMENTOS -->
+            <section id="tab-agendamentos" class="tab-content">
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Agendamentos recebidos</h2>
+                        <button class="btn btn-outline btn-sm" id="btn-limpar-agendamentos">Limpar todos</button>
+                    </div>
+                    <div id="lista-agendamentos" class="table-wrap">
+                        <!-- preenchido via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB PROCESSOS -->
+            <section id="tab-processos" class="tab-content">
+                <div class="admin-card">
+                    <h2>Base de Processos (Consulta Pública)</h2>
+                    <p class="hint">Estes são os códigos disponíveis na consulta processual do site.</p>
+                    <div id="lista-processos" class="table-wrap">
+                        <!-- preenchido via JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

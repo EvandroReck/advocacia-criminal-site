@@ -1,50 +1,66 @@
 # AR Advocacia Criminal — Site Institucional
 
-Site institucional minimalista de alto padrão para escritório de Advocacia Criminal.
+Site institucional minimalista em **preto ônix** e **dourado luxo**, com estrutura profissional inspirada em escritórios de alto padrão.
 
-## Design System
+## Estrutura de arquivos
 
-- **Fundo:** Preto Ônix `#0A0A0A`
-- **Destaques / Bordas / Ícones:** Dourado Luxo `#D4AF37`
-- **Textos principais:** Branco Off `#F5F5F5`
+```
+/
+├── index.html          → Site público (página única)
+├── admin.html          → Painel administrativo
+├── css/
+│   └── style.css       → Todo o design system
+├── js/
+│   ├── db.js           → Banco de dados simulado (localStorage)
+│   ├── main.js         → Lógica do site público
+│   └── admin.js        → Lógica do painel admin
+└── README.md
+```
 
-Design extremamente limpo, sofisticado, elegante e focado em conversão (autoridade + discrição).
+## Cores
 
-## Seções
+| Token        | Hex       | Uso                          |
+|--------------|-----------|------------------------------|
+| Preto Ônix   | `#0A0A0A` | Fundo                        |
+| Dourado Luxo | `#D4AF37` | Destaques, botões, bordas    |
+| Branco Off   | `#F5F5F5` | Textos principais            |
 
-1. **Menu de navegação fixo** com logo minimalista, links e botão de Atendimento Urgente 24h (WhatsApp)
-2. **Hero** com título de impacto e CTAs
-3. **Áreas de Atuação** — grid de cards (Tribunal do Júri, Crimes Financeiros, Operações Policiais, Execução Penal, Habeas Corpus)
-4. **Sobre o Escritório** — autoridade, discrição e atendimento humanizado
-5. **Consulta Processual** — interface simulada de banco de dados com busca por Código do Caso / CPF
-6. **Footer** com contato, endereço, redes e aviso ético da OAB
+## Funcionalidades
 
-## Tecnologias
+### Site público (`index.html`)
+- Menu fixo + navegação suave
+- Hero com CTAs
+- Áreas de atuação
+- Sobre o escritório
+- **Lista dinâmica de serviços** (vinda do "banco")
+- **Formulário de agendamento** → grava no localStorage
+- **Consulta processual** simulada
+- Footer com telefone **+55 46 99919-3713** e WhatsApp
 
-- HTML5 semântico
-- Tailwind CSS (via CDN)
-- JavaScript vanilla (menu mobile + simulação de consulta assíncrona)
-- Totalmente responsivo
+### Painel Admin (`admin.html`)
+- **CRUD de serviços** (criar, editar, excluir)
+- Visualização e exclusão de agendamentos
+- Lista da base de processos da consulta pública
 
-## Como visualizar
+Todos os dados ficam no **localStorage** do navegador (simulação de banco de dados).
 
-Abra o arquivo `index.html` em qualquer navegador ou publique em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel etc.).
+## Telefone / WhatsApp
 
-### Códigos de teste da consulta:
+- **+55 46 99919-3713**
+- Link direto: `https://wa.me/5546999193713`
+
+## Códigos de teste da consulta
 
 - `AR-2024-0847`
 - `AR-2025-0312`
 - `123.456.789-00`
 
+## Como usar
+
+1. Abra `index.html` no navegador
+2. Acesse `admin.html` para gerenciar serviços e ver agendamentos
+3. Ou publique a pasta inteira em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel...)
+
 ## Personalização
 
-Substitua:
-- Número de WhatsApp
-- E-mail e endereço
-- Nome do advogado / OAB
-- Links de redes sociais
-- Logo (atualmente iniciais "AR")
-
----
-
-Desenvolvido com foco em autoridade, discrição e conversão.
+Altere em `js/db.js` os processos e serviços iniciais, e no HTML/CSS o nome do escritório, OAB e endereço.
