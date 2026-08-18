@@ -15,21 +15,19 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#inicio" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-mark">AR</span>
                 <span class="logo-text">Advocacia<br>Criminal</span>
             </a>
 
             <div class="nav-links" id="nav-links">
-                <a href="#inicio" class="nav-link">Início</a>
-                <a href="#areas" class="nav-link">Áreas de Atuação</a>
-                <a href="#sobre" class="nav-link">Sobre</a>
-                <a href="#servicos" class="nav-link">Serviços</a>
-                <a href="#agendar" class="nav-link">Agendar</a>
-                <a href="#consulta" class="nav-link">Consulta</a>
-                <a href="#contato" class="nav-link">Contato</a>
+                <a href="index.html" class="nav-link active">Início</a>
+                <a href="quem-somos.html" class="nav-link">Quem Somos</a>
+                <a href="areas.html" class="nav-link">Áreas de Atuação</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contato.html" class="nav-link">Contato</a>
                 <a href="admin.html" class="nav-link admin-link">Área Admin</a>
-                <a href="https://wa.me/5546999193713?text=Ol%C3%A1%2C%20preciso%20de%20atendimento%20urgente%20em%20Advocacia%20Criminal." 
+                <a href="https://wa.me/5546999193713?text=Ol%C3%A1%2C%20preciso%20de%20atendimento%20urgente%20em%20Advocacia%20Criminal."
                    target="_blank" rel="noopener" class="btn btn-gold btn-sm">
                     Atendimento Urgente 24h
                 </a>
@@ -42,7 +40,7 @@
     </nav>
 
     <!-- HERO -->
-    <section id="inicio" class="hero">
+    <section class="hero">
         <div class="container hero-content">
             <p class="eyebrow">Escritório Especializado</p>
             <h1>Defesa Criminal<br><span class="text-gold">Estratégica e Rigorosa.</span></h1>
@@ -50,271 +48,110 @@
                 Atuação especializada, sigilosa e implacável na proteção dos seus direitos e da sua liberdade.
             </p>
             <div class="hero-actions">
-                <a href="https://wa.me/5546999193713?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista." 
+                <a href="https://wa.me/5546999193713?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20especialista."
                    target="_blank" rel="noopener" class="btn btn-gold">
                     Falar com Especialista
                 </a>
-                <a href="#agendar" class="btn btn-outline">Agendar Consulta</a>
+                <a href="contato.html" class="btn btn-outline">Agendar Consulta</a>
             </div>
         </div>
     </section>
 
-    <!-- ÁREAS DE ATUAÇÃO -->
-    <section id="areas" class="section">
+    <!-- DIFERENCIAIS / RESUMO -->
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <p class="eyebrow">Especialidades</p>
-                <h2>Áreas de Atuação</h2>
+                <p class="eyebrow">Por que nos escolher</p>
+                <h2>Diferenciais do Escritório</h2>
             </div>
-            <div class="grid-cards" id="areas-grid">
-                <!-- Preenchido via JS ou estático -->
+            <div class="grid-cards">
                 <article class="card">
                     <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     </div>
-                    <h3>Tribunal do Júri</h3>
-                    <p>Defesa técnica e estratégica em plenário, com preparação rigorosa de teses e condução de júri popular.</p>
+                    <h3>Sigilo Absoluto</h3>
+                    <p>Cada caso é tratado com discrição total. Informações protegidas em todas as etapas do processo.</p>
                 </article>
                 <article class="card">
                     <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <h3>Crimes contra o Sistema Financeiro</h3>
-                    <p>Atuação em crimes econômicos, lavagem de dinheiro, fraudes e infrações à legislação do mercado de capitais.</p>
+                    <h3>Atendimento 24h</h3>
+                    <p>Disponibilidade imediata para situações de urgência: prisões, operações e habeas corpus.</p>
                 </article>
                 <article class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
-                    <h3>Operações Policiais</h3>
-                    <p>Acompanhamento em operações, busca e apreensão, inquéritos e defesa desde a fase policial.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                    </div>
-                    <h3>Execução Penal</h3>
-                    <p>Progressão de regime, livramento condicional, indulto, comutação e defesa em execução da pena.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
-                    </div>
-                    <h3>Habeas Corpus</h3>
-                    <p>Impetração de HC preventivo e liberatório com urgência, protegendo a liberdade de locomoção.</p>
+                    <h3>Estratégia Sob Medida</h3>
+                    <p>Análise profunda de cada caso e defesa técnica personalizada, da investigação à execução penal.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section section-alt">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <p class="eyebrow">O Escritório</p>
-                    <h2>Autoridade, Discrição e Tática</h2>
-                    <p>Atuamos com rigor técnico e estratégia sob medida. Cada caso é tratado com absoluto sigilo, análise profunda e postura implacável na defesa dos direitos fundamentais.</p>
-                    <p>Nosso compromisso é com a liberdade e a dignidade do cliente. Combinamos conhecimento jurídico de alto nível com atendimento humanizado e personalizado.</p>
-                    <p>Discrição absoluta. Resultados consistentes. Presença em todas as fases do processo penal — da investigação policial à execução da pena.</p>
-                    <div class="stats">
-                        <div class="stat">
-                            <span class="stat-value">15+</span>
-                            <span class="stat-label">Anos de Experiência</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">24h</span>
-                            <span class="stat-label">Atendimento</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">100%</span>
-                            <span class="stat-label">Sigilo</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-photo">
-                    <div class="photo-placeholder">
-                        <div class="photo-inner">
-                            <span class="photo-initials">AR</span>
-                            <p class="photo-name">Dr. Advogado Responsável</p>
-                            <p class="photo-oab">OAB/PR 00.000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVIÇOS (lista dinâmica do banco) -->
-    <section id="servicos" class="section">
+    <!-- SERVIÇOS POR CATEGORIA (dinâmico) -->
+    <section class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <p class="eyebrow">O que oferecemos</p>
                 <h2>Serviços</h2>
-                <p class="section-desc">Serviços disponíveis para agendamento. Gerenciados pela área administrativa.</p>
+                <p class="section-desc">Organizados por categoria. Gerenciados pela área administrativa.</p>
             </div>
-            <div class="grid-cards" id="servicos-list">
-                <!-- Preenchido via JavaScript a partir do localStorage -->
+            <div id="servicos-por-categoria">
+                <!-- Preenchido via JS -->
+            </div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="areas.html" class="btn btn-outline">Ver todas as áreas de atuação</a>
             </div>
         </div>
     </section>
 
-    <!-- AGENDAR SERVIÇO -->
-    <section id="agendar" class="section section-alt">
-        <div class="container narrow">
-            <div class="section-header">
-                <p class="eyebrow">Agendamento</p>
-                <h2>Agendar Consulta ou Serviço</h2>
-                <p class="section-desc">Preencha os dados abaixo. Seu agendamento será registrado no sistema interno.</p>
+    <!-- CTA -->
+    <section class="section">
+        <div class="container narrow text-center">
+            <p class="eyebrow">Pronto para agir</p>
+            <h2>Precisa de defesa criminal agora?</h2>
+            <p class="section-desc" style="margin-bottom: 1.5rem;">Entre em contato. Atendimento urgente e sigiloso.</p>
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="https://wa.me/5546999193713" target="_blank" rel="noopener" class="btn btn-gold">WhatsApp 24h</a>
+                <a href="contato.html" class="btn btn-outline">Formulário de Contato</a>
             </div>
-
-            <form id="form-agendar" class="form-card">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nome">Nome completo</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone">Telefone / WhatsApp</label>
-                        <input type="tel" id="telefone" name="telefone" required placeholder="(46) 99999-9999">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="servico">Serviço desejado</label>
-                        <select id="servico" name="servico" required>
-                            <option value="">Selecione...</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="data">Data preferencial</label>
-                        <input type="date" id="data" name="data" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="horario">Horário preferencial</label>
-                        <select id="horario" name="horario" required>
-                            <option value="">Selecione...</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="mensagem">Breve descrição do caso (opcional)</label>
-                    <textarea id="mensagem" name="mensagem" rows="3" placeholder="Descreva resumidamente a situação..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-gold btn-block" id="btn-agendar">
-                    <span class="btn-text">Confirmar Agendamento</span>
-                    <span class="btn-loader hidden"></span>
-                </button>
-                <div id="agendar-sucesso" class="alert alert-success hidden"></div>
-                <div id="agendar-erro" class="alert alert-error hidden"></div>
-            </form>
         </div>
     </section>
 
-    <!-- CONSULTA PROCESSUAL -->
-    <section id="consulta" class="section">
-        <div class="container narrow">
-            <div class="section-header">
-                <p class="eyebrow">Área Restrita</p>
-                <h2>Consulta Processual</h2>
-                <p class="section-desc">Acesse o andamento do seu caso com sigilo e agilidade.</p>
-            </div>
-
-            <div class="form-card">
-                <form id="form-consulta">
-                    <div class="form-group">
-                        <label for="codigo">Código do Caso ou CPF</label>
-                        <input type="text" id="codigo" name="codigo" required placeholder="Ex: AR-2024-0847 ou 000.000.000-00">
-                    </div>
-                    <button type="submit" class="btn btn-gold btn-block" id="btn-consultar">
-                        <span class="btn-text">Consultar</span>
-                        <span class="btn-loader hidden"></span>
-                    </button>
-                </form>
-
-                <div id="resultado-consulta" class="result-card hidden">
-                    <div class="result-header">
-                        <div>
-                            <p class="result-label">Status do Processo</p>
-                            <p id="status-texto" class="result-status"></p>
-                        </div>
-                        <span class="badge">Sigiloso</span>
-                    </div>
-                    <div class="result-body">
-                        <p><span class="label">Código:</span> <span id="codigo-resultado"></span></p>
-                        <p><span class="label">Última atualização:</span> <span id="data-resultado"></span></p>
-                        <p><span class="label">Nível de sigilo:</span> <span id="sigilo-resultado" class="text-gold"></span></p>
-                    </div>
-                    <p class="result-note">Simulação de consulta. Em ambiente real os dados são protegidos por criptografia.</p>
-                </div>
-
-                <div id="erro-consulta" class="alert alert-error hidden">
-                    Nenhum processo encontrado. Verifique o código ou CPF e tente novamente.
-                </div>
-            </div>
-
-            <p class="hint-codes">
-                Códigos de teste: <code>AR-2024-0847</code> · <code>AR-2025-0312</code> · <code>123.456.789-00</code>
-            </p>
-        </div>
-    </section>
-
-    <!-- CONTATO / FOOTER -->
-    <footer id="contato" class="footer">
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Contato</h4>
                     <ul>
-                        <li>
-                            <a href="https://wa.me/5546999193713" target="_blank" rel="noopener">
-                                WhatsApp: +55 46 99919-3713
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+5546999193713">Telefone: +55 46 99919-3713</a>
-                        </li>
-                        <li>
-                            <a href="mailto:contato@advocaciacriminal.com.br">contato@advocaciacriminal.com.br</a>
-                        </li>
+                        <li><a href="https://wa.me/5546999193713" target="_blank" rel="noopener">WhatsApp: +55 46 99919-3713</a></li>
+                        <li><a href="tel:+5546999193713">Telefone: +55 46 99919-3713</a></li>
+                        <li><a href="mailto:contato@advocaciacriminal.com.br">contato@advocaciacriminal.com.br</a></li>
                         <li>Atendimento 24 horas</li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Endereço</h4>
-                    <p>
-                        Centro<br>
-                        Paraná — Brasil
-                    </p>
+                    <p>Centro<br>Paraná — Brasil</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navegação</h4>
                     <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#areas">Áreas de Atuação</a></li>
-                        <li><a href="#agendar">Agendar</a></li>
-                        <li><a href="#consulta">Consulta Processual</a></li>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="quem-somos.html">Quem Somos</a></li>
+                        <li><a href="areas.html">Áreas de Atuação</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
                         <li><a href="admin.html">Área Admin</a></li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p class="ethical-notice">
-                    Este site não constitui oferta de serviços jurídicos. A publicidade é realizada em conformidade com o Código de Ética e Disciplina da OAB e com o Provimento nº 205/2021. 
+                    Este site não constitui oferta de serviços jurídicos. A publicidade é realizada em conformidade com o Código de Ética e Disciplina da OAB e com o Provimento nº 205/2021.
                     As informações têm caráter meramente informativo. O atendimento é personalizado e depende de análise prévia do caso.
                 </p>
                 <p class="copyright">&copy; 2026 AR Advocacia Criminal. Todos os direitos reservados.</p>

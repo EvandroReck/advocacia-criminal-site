@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | AR Advocacia Criminal</title>
+    <meta name="description" content="Entre em contato com o escritório AR Advocacia Criminal. Formulário, WhatsApp e atendimento 24h.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-mark">AR</span>
+                <span class="logo-text">Advocacia<br>Criminal</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="quem-somos.html" class="nav-link">Quem Somos</a>
+                <a href="areas.html" class="nav-link">Áreas de Atuação</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contato.html" class="nav-link active">Contato</a>
+                <a href="admin.html" class="nav-link admin-link">Área Admin</a>
+                <a href="https://wa.me/5546999193713?text=Ol%C3%A1%2C%20preciso%20de%20atendimento%20urgente%20em%20Advocacia%20Criminal."
+                   target="_blank" rel="noopener" class="btn btn-gold btn-sm">Atendimento Urgente 24h</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <p class="eyebrow">Fale conosco</p>
+            <h1>Contato</h1>
+            <p class="page-subtitle">Formulário de agendamento, canais de atendimento e localização.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Formulário -->
+                <div>
+                    <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                        <p class="eyebrow">Agendamento</p>
+                        <h2>Agendar consulta ou serviço</h2>
+                        <p class="section-desc">Preencha os dados. Seu pedido será registrado no sistema interno.</p>
+                    </div>
+
+                    <form id="form-agendar" class="form-card">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome completo</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone / WhatsApp</label>
+                                <input type="tel" id="telefone" name="telefone" required placeholder="(46) 99999-9999">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="servico">Serviço desejado</label>
+                                <select id="servico" name="servico" required>
+                                    <option value="">Selecione...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data">Data preferencial</label>
+                                <input type="date" id="data" name="data" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="horario">Horário preferencial</label>
+                                <select id="horario" name="horario" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Breve descrição do caso (opcional)</label>
+                            <textarea id="mensagem" name="mensagem" rows="3" placeholder="Descreva resumidamente a situação..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold btn-block" id="btn-agendar">
+                            <span class="btn-text">Confirmar Agendamento</span>
+                            <span class="btn-loader hidden"></span>
+                        </button>
+                        <div id="agendar-sucesso" class="alert alert-success hidden"></div>
+                        <div id="agendar-erro" class="alert alert-error hidden"></div>
+                    </form>
+                </div>
+
+                <!-- Canais + mapa placeholder -->
+                <div>
+                    <div class="admin-card" style="margin-bottom: 1.25rem;">
+                        <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">Canais de atendimento</h2>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 0.75rem;">
+                                <a href="https://wa.me/5546999193713" target="_blank" rel="noopener" class="text-gold">WhatsApp: +55 46 99919-3713</a>
+                                <span style="display: block; font-size: 0.8rem; color: var(--muted);">Atendimento 24 horas</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <a href="tel:+5546999193713">Telefone: +55 46 99919-3713</a>
+                            </li>
+                            <li style="margin-bottom: 0.75rem;">
+                                <a href="mailto:contato@advocaciacriminal.com.br">contato@advocaciacriminal.com.br</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="admin-card">
+                        <h2 style="font-size: 1.1rem; margin-bottom: 1rem;">Endereço</h2>
+                        <p style="color: var(--muted); font-weight: 300; margin-bottom: 1rem;">
+                            Centro<br>
+                            Paraná — Brasil
+                        </p>
+                        <div class="map-placeholder">
+                            <p>Mapa (substitua por embed do Google Maps)</p>
+                        </div>
+                    </div>
+
+                    <!-- Consulta processual -->
+                    <div class="admin-card" style="margin-top: 1.25rem;">
+                        <h2 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Consulta Processual</h2>
+                        <p class="hint" style="margin-bottom: 1rem;">Acesse o andamento do seu caso com sigilo.</p>
+                        <form id="form-consulta">
+                            <div class="form-group">
+                                <label for="codigo">Código do Caso ou CPF</label>
+                                <input type="text" id="codigo" name="codigo" required placeholder="Ex: AR-2024-0847">
+                            </div>
+                            <button type="submit" class="btn btn-gold btn-block" id="btn-consultar">
+                                <span class="btn-text">Consultar</span>
+                                <span class="btn-loader hidden"></span>
+                            </button>
+                        </form>
+                        <div id="resultado-consulta" class="result-card hidden">
+                            <div class="result-header">
+                                <div>
+                                    <p class="result-label">Status do Processo</p>
+                                    <p id="status-texto" class="result-status"></p>
+                                </div>
+                                <span class="badge">Sigiloso</span>
+                            </div>
+                            <div class="result-body">
+                                <p><span class="label">Código:</span> <span id="codigo-resultado"></span></p>
+                                <p><span class="label">Última atualização:</span> <span id="data-resultado"></span></p>
+                                <p><span class="label">Nível de sigilo:</span> <span id="sigilo-resultado" class="text-gold"></span></p>
+                            </div>
+                            <p class="result-note">Simulação. Em ambiente real os dados são protegidos por criptografia.</p>
+                        </div>
+                        <div id="erro-consulta" class="alert alert-error hidden">
+                            Nenhum processo encontrado. Verifique o código ou CPF.
+                        </div>
+                        <p class="hint-codes" style="margin-top: 1rem;">
+                            Teste: <code>AR-2024-0847</code> · <code>AR-2025-0312</code> · <code>123.456.789-00</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5546999193713" target="_blank" rel="noopener">WhatsApp: +55 46 99919-3713</a></li>
+                        <li><a href="tel:+5546999193713">Telefone: +55 46 99919-3713</a></li>
+                        <li><a href="mailto:contato@advocaciacriminal.com.br">contato@advocaciacriminal.com.br</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Centro<br>Paraná — Brasil</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="quem-somos.html">Quem Somos</a></li>
+                        <li><a href="areas.html">Áreas de Atuação</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="ethical-notice">Este site não constitui oferta de serviços jurídicos. Publicidade em conformidade com o Código de Ética da OAB e Provimento nº 205/2021.</p>
+                <p class="copyright">&copy; 2026 AR Advocacia Criminal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
