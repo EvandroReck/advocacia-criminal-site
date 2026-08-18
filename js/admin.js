@@ -1,9 +1,10 @@
 /**
- * Admin panel
+ * Admin panel — com suporte a categorias
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initTabs();
+    populateCategoriaSelect();
     renderServicosAdmin();
     renderAgendamentos();
     renderProcessos();
@@ -22,12 +23,25 @@ function initTabs() {
     });
 }
 
-// -------- SERVIÇOS --------
+function populateCategoriaSelect() {
+    const select = document.getElementById('servico-categoria');
+    if (!select) return;
+
+    const categorias = DB.getCategorias().sort((a, b) => a.ordem - b.ordem);
+    categorias.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.nome;
+        select.appendChild(opt);
+    });
+}
+
 function renderServicosAdmin() {
     const container = document.getElementById('lista-servicos-admin');
     if (!container) return;
 
     const list = DB.getServicos();
+    const categorias = DB.getCategorias();
 
     if (!list.length) {
         container.innerHTML = '<p class="empty-state">Nenhum serviço cadastrado.</p>';
@@ -39,23 +53,29 @@ function renderServicosAdmin() {
             <thead>
                 <tr>
                     <th>Título</th>
+                    <th>Categoria</th>
                     <th>Descrição</th>
                     <th>Valor</th>
+                    <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                ${list.map(s => `
+                ${list.map(s => {
+                    const cat = categorias.find(c => c.id === s.categoriaId);
+                    return `
                     <tr>
                         <td>${escapeHtml(s.titulo)}</td>
-                        <td>${escapeHtml(s.descricao.substring(0, 60))}${s.descricao.length > 60 ? '...' : ''}</td>
+                        <td>${escapeHtml(cat ? cat.nome : '—')}</td>
+                        <td>${escapeHtml((s.descricao || '').substring(0, 50))}${(s.descricao || '').length > 50 ? '...' : ''}</td>
                         <td>${escapeHtml(s.preco || '—')}</td>
+                        <td>${s.ativo !== false ? 'Ativo' : 'Inativo'}</td>
                         <td class="actions-cell">
                             <button class="btn-icon" onclick="editarServico('${s.id}')">Editar</button>
                             <button class="btn-icon danger" onclick="excluirServico('${s.id}')">Excluir</button>
                         </td>
-                    </tr>
-                `).join('')}
+                    </tr>`;
+                }).join('')}
             </tbody>
         </table>
     `;
@@ -72,7 +92,9 @@ function initFormServico() {
         const dados = {
             titulo: document.getElementById('servico-titulo').value.trim(),
             descricao: document.getElementById('servico-descricao').value.trim(),
-            preco: document.getElementById('servico-preco').value.trim()
+            preco: document.getElementById('servico-preco').value.trim(),
+            categoriaId: document.getElementById('servico-categoria').value,
+            ativo: document.getElementById('servico-ativo').value === 'true'
         };
 
         if (id) {
@@ -105,6 +127,8 @@ function editarServico(id) {
     document.getElementById('servico-titulo').value = s.titulo;
     document.getElementById('servico-descricao').value = s.descricao;
     document.getElementById('servico-preco').value = s.preco || '';
+    document.getElementById('servico-categoria').value = s.categoriaId || '';
+    document.getElementById('servico-ativo').value = s.ativo !== false ? 'true' : 'false';
     document.getElementById('btn-salvar-servico').textContent = 'Atualizar Serviço';
     document.getElementById('btn-cancelar-servico').style.display = 'inline-flex';
 
@@ -117,7 +141,6 @@ function excluirServico(id) {
     renderServicosAdmin();
 }
 
-// -------- AGENDAMENTOS --------
 function renderAgendamentos() {
     const container = document.getElementById('lista-agendamentos');
     if (!container) return;
@@ -146,7 +169,7 @@ function renderAgendamentos() {
                 ${list.map(a => `
                     <tr>
                         <td>${escapeHtml(a.nome)}</td>
-                        <td><a href="https://wa.me/55${a.telefone.replace(/\D/g, '')}" target="_blank" rel="noopener">${escapeHtml(a.telefone)}</a></td>
+                        <td><a href="https://wa.me/55${(a.telefone || '').replace(/\D/g, '')}" target="_blank" rel="noopener">${escapeHtml(a.telefone)}</a></td>
                         <td>${escapeHtml(a.servico)}</td>
                         <td>${formatDate(a.data)}</td>
                         <td>${escapeHtml(a.horario)}</td>
@@ -177,13 +200,12 @@ function initLimparAgendamentos() {
     });
 }
 
-// -------- PROCESSOS --------
 function renderProcessos() {
     const container = document.getElementById('lista-processos');
     if (!container) return;
 
     const processos = DB.getProcessos();
-    const entries = Object.entries(processos).filter(([k]) => !/^\d{11}$/.test(k)); // evita duplicata do CPF só números
+    const entries = Object.entries(processos).filter(([k]) => !/^\d{11}$/.test(k));
 
     container.innerHTML = `
         <table>
@@ -209,7 +231,6 @@ function renderProcessos() {
     `;
 }
 
-// Utils
 function escapeHtml(str) {
     if (!str) return '';
     const div = document.createElement('div');

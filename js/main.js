@@ -1,10 +1,11 @@
 /**
- * Main — Site público
+ * Main — Site público (multi-página)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
-    renderServicos();
+    renderServicosPorCategoria();
+    renderAreasCategorias();
     populateServicoSelect();
     initFormAgendar();
     initFormConsulta();
@@ -25,42 +26,88 @@ function initMobileMenu() {
     });
 }
 
-// Lista de serviços na home
-function renderServicos() {
-    const container = document.getElementById('servicos-list');
-    if (!container) return;
+// Home: serviços agrupados por categoria
+function renderServicosPorCategoria() {
+    const container = document.getElementById('servicos-por-categoria');
+    if (!container || typeof DB === 'undefined') return;
 
-    const servicos = DB.getServicos();
+    const categorias = DB.getCategorias().sort((a, b) => a.ordem - b.ordem);
+    const servicos = DB.getServicos().filter(s => s.ativo !== false);
 
-    if (!servicos.length) {
-        container.innerHTML = '<p class="empty-state">Nenhum serviço cadastrado no momento.</p>';
+    if (!categorias.length) {
+        container.innerHTML = '<p class="empty-state">Nenhuma categoria cadastrada.</p>';
         return;
     }
 
-    container.innerHTML = servicos.map(s => `
-        <article class="card">
-            <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+    container.innerHTML = categorias.map(cat => {
+        const itens = servicos.filter(s => s.categoriaId === cat.id);
+        if (!itens.length) return '';
+
+        return `
+            <div class="categoria-block">
+                <h3 class="categoria-title">${escapeHtml(cat.nome)}</h3>
+                <p class="categoria-desc">${escapeHtml(cat.descricao)}</p>
+                <div class="grid-cards">
+                    ${itens.map(s => `
+                        <article class="card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3>${escapeHtml(s.titulo)}</h3>
+                            <p>${escapeHtml(s.descricao)}</p>
+                            ${s.preco ? `<p style="margin-top:0.75rem;color:var(--gold);font-size:0.8rem;">${escapeHtml(s.preco)}</p>` : ''}
+                        </article>
+                    `).join('')}
+                </div>
             </div>
-            <h3>${escapeHtml(s.titulo)}</h3>
-            <p>${escapeHtml(s.descricao)}</p>
-            ${s.preco ? `<p style="margin-top:0.75rem;color:var(--gold);font-size:0.8rem;">${escapeHtml(s.preco)}</p>` : ''}
-        </article>
-    `).join('');
+        `;
+    }).join('');
+}
+
+// Página Áreas: categorias + serviços
+function renderAreasCategorias() {
+    const container = document.getElementById('areas-categorias');
+    if (!container || typeof DB === 'undefined') return;
+
+    const categorias = DB.getCategorias().sort((a, b) => a.ordem - b.ordem);
+    const servicos = DB.getServicos().filter(s => s.ativo !== false);
+
+    container.innerHTML = categorias.map(cat => {
+        const itens = servicos.filter(s => s.categoriaId === cat.id);
+
+        return `
+            <div class="categoria-block">
+                <h2 class="categoria-title">${escapeHtml(cat.nome)}</h2>
+                <p class="categoria-desc">${escapeHtml(cat.descricao)}</p>
+                <div class="grid-cards">
+                    ${itens.length ? itens.map(s => `
+                        <article class="card">
+                            <h3>${escapeHtml(s.titulo)}</h3>
+                            <p>${escapeHtml(s.descricao)}</p>
+                            ${s.preco ? `<p style="margin-top:0.75rem;color:var(--gold);font-size:0.8rem;">${escapeHtml(s.preco)}</p>` : ''}
+                        </article>
+                    `).join('') : '<p class="empty-state">Nenhum serviço nesta categoria ainda.</p>'}
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
 // Select do formulário de agendamento
 function populateServicoSelect() {
     const select = document.getElementById('servico');
-    if (!select) return;
+    if (!select || typeof DB === 'undefined') return;
 
-    const servicos = DB.getServicos();
+    const servicos = DB.getServicos().filter(s => s.ativo !== false);
+    const categorias = DB.getCategorias();
+
     servicos.forEach(s => {
+        const cat = categorias.find(c => c.id === s.categoriaId);
         const opt = document.createElement('option');
         opt.value = s.titulo;
-        opt.textContent = s.titulo;
+        opt.textContent = cat ? `${s.titulo} (${cat.nome})` : s.titulo;
         select.appendChild(opt);
     });
 }
@@ -68,9 +115,8 @@ function populateServicoSelect() {
 // Formulário de agendamento
 function initFormAgendar() {
     const form = document.getElementById('form-agendar');
-    if (!form) return;
+    if (!form || typeof DB === 'undefined') return;
 
-    // data mínima = hoje
     const dataInput = document.getElementById('data');
     if (dataInput) {
         const today = new Date().toISOString().split('T')[0];
@@ -124,7 +170,7 @@ function initFormAgendar() {
 // Consulta processual
 function initFormConsulta() {
     const form = document.getElementById('form-consulta');
-    if (!form) return;
+    if (!form || typeof DB === 'undefined') return;
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
