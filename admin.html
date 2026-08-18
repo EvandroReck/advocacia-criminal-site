@@ -8,6 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/auth.js"></script>
+    <script>
+        // Bloqueia acesso sem login (antes de renderizar o conteúdo)
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
 </head>
 <body>
 
@@ -19,7 +26,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">← Voltar ao Site</a>
-                <a href="https://wa.me/5546999193713" target="_blank" rel="noopener" class="btn btn-gold btn-sm">WhatsApp</a>
+                <button type="button" class="btn btn-outline btn-sm" id="btn-logout">Sair</button>
             </div>
         </div>
     </nav>
@@ -109,5 +116,11 @@
 
     <script src="js/db.js"></script>
     <script src="js/admin.js"></script>
+    <script>
+        document.getElementById('btn-logout')?.addEventListener('click', () => {
+            Auth.logout();
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>
